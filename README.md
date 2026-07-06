@@ -1,109 +1,65 @@
-curl -sL tacto44.github.io/tacto44/pacman.sh | sudo bash
 
-# 2. Switch to your regular user's home directory and drop into their shell
-cd /home/your_username
-sudo -u your_username bash
+curl https://mirror.cachyos.org/cachyos-repo.tar.xz -o cachyos-repo.tar.xz
 
-# 3. Clone the official Paru repository from the AUR
-git clone https://aur.archlinux.org/paru-bin.git
+tar xvf cachyos-repo.tar.xz
 
+cd cachyos-repo
 
-curl -sL tacto44.github.io/tacto44/post.sh | bash
+sudo ./cachyos-repo.sh
 
-curl -sL tacto44.github.io/tacto44/aur.sh | bash
+manually remove the package folders at end of update if needed
 
-# 1. Download the archive to your home folder
-wget https://tacto44.github.io/tacto44/kdebackup.tar.gz
+pacman -Qqn | sudo pacman -S --needed -
 
-# 2. Extract it safely right into your home directory 
-tar -xzvf kdebackup.tar.gz -C ~/
+sudo pacman -Scc
 
-sudo sed -i '/^OPTIONS=/s/\bdebug\b/!debug/' /etc/makepkg.conf
+sudo pacman -Sy
 
-sudo nano /etc/systemd/system.conf
+sudo pacman -S linux-cachyos linux-cachyos-headers chwd
 
-Find these two lines (they are usually commented out with a `#`):
-   ```ini
-   #DefaultTimeoutStartSec=90s
-   #DefaultTimeoutStopSec=90s
+sudo chwd -a
 
-   Change them to 5s
+reboot
 
-   Tghen do the same thing for
+sudo pacman -R linux
 
-   sudo nano /etc/systemd/user.conf
-sudo systemctl daemon-reload
-systemctl --user daemon-reload
+sudo limine-mkinitcpio
 
+sudo pacman -S plasma-meta plasma-login-manager konsole dolphin kate vlc vlc-plugins-all steam libheif ark gwenview akregator unrar partitionmanager inter-font qbittorrent base-devel git flatpak cachyos-hello cachyos-rate-mirrors cachyos-kernel-manager shelly fish firefox cachyos-firefox-settings qemu-full virt-manager virt-viewer dnsmasq vde2 openbsd-netcat iptables-nft
 
-   sudo nano /etc/systemd/journald.conf
-
-   Find and uncomment the `SystemMaxUse` line, then set its limit:
-   ```ini
-SystemMaxUse=200M
-
-Change to 200mb
-
-
-sudo nano /boot/limine/limine.conf
-
-Change or add the `timeout` line to **0** or **1**:
-   ```ini
-   timeout 1
-
-
-
-   sudo nano /etc/pacman.conf
-
-   VerbosePkgLists
-   ILoveCandy
-   ParallelDownloads = 10
-
-
-   balooctl6 disable
-   balooctl6 purge
-
-
-   sudo pacman -S --needed --noconfirm git base-devel flatpak linux-zen-headers nvidia-open-dkms nvidia-utils qbittorrent steam vlc vlc-plugin-x265 gwenview ark libheif yt-dlp ffmpeg fuse2 inter-font reflector
 
 chsh -s /usr/bin/fish
 
-sudo reflector --latest 20 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+install yay
 
-git clone https://aur.archlinux.org/paru.git
-cd paru
-makepkg -si
+yay --devel --save
 
-paru --gendb
+sudo systemctl enable plasmalogin
 
-sudo systemctl enable --now bluetooth
-paru -S nordvpn-bin nordvpn-gui-bin kei kwin-effect-rounded-corners-git arch-update-git
+sudo systemctl enable --now libvirtd
 
-# 1. Create your local applications directory if it doesn't exist
-mkdir -p ~/.local/share/applications/
+sudo usermod -aG libvirt $USER
 
-# 2. Copy the official arch-update desktop shortcut into it
-cp /usr/share/applications/arch-update.desktop ~/.local/share/applications/
+reboot into plasma
 
-# 3. Open your local copy in a text editor (like nano or micro)
-nano ~/.local/share/applications/arch-update.desktop
+balooctl6 disable
+balooctl6 purge
 
-change to Exec=arch-update -d
+cachyos hello, remember not to enable browser profiles in ram, change the others
 
+log into firefox, sites etc
 
-# Generate the config file if you don't have one yet
-arch-update --gen-config
+fish_config
 
-# Open the config file for editing
-arch-update --edit-config
-
-CheckDevel=true
-
-
+install aur packages, nord gui bin, kei, rounded corners git
 
 sudo usermod -aG nordvpn $USER
-sudo systemctl enable --now nordvpnd.service
-sudo mkinitcpio -P
 
-tar -xzvf kde_settings_backup.tar.gz -C /
+sudo systemctl enable --now nordvpnd.service
+
+sudo sed -i '/^OPTIONS=/s/\bdebug\b/!debug/' /etc/makepkg.conf
+
+sudo sed -i -E 's/^#?(DefaultTimeout(Start|Stop)Sec)=.*/\1=5s/' /etc/systemd/system.conf
+
+sudo sed -i -E 's/^#?(DefaultTimeout(Start|Stop)Sec)=.*/\1=5s/' /etc/systemd/user.conf
 
