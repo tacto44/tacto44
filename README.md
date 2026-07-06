@@ -51,11 +51,13 @@ log into firefox, sites etc
 
 fish_config
 
-install aur packages, nord gui bin, kei, rounded corners git
+install aur packages, nord gui bin, kei, rounded corners git, karousel
 
 sudo usermod -aG nordvpn $USER
 
 sudo systemctl enable --now nordvpnd.service
+
+make all system changes, import shortcuts, change konsole, change font etc
 
 sudo sed -i '/^OPTIONS=/s/\bdebug\b/!debug/' /etc/makepkg.conf
 
