@@ -15,16 +15,18 @@ sudo pacman -Scc
 
 sudo pacman -Sy
 
-sudo pacman -S linux-cachyos linux-cachyos-headers chwd limine-mkinitcpio-hook
+sudo pacman -S linux-cachyos linux-cachyos-headers chwd sdboot-manage cachyos-hooks
 
 
 sudo chwd -a
+
+sudo sdboot-manage gen
 
 reboot
 
 sudo pacman -R linux
 
-sudo limine-mkinitcpio
+sudo sdboot-manage gen
 
 sudo pacman -S plasma-meta plasma-login-manager konsole dolphin kate vlc vlc-plugins-all steam libheif ark gwenview akregator unrar partitionmanager inter-font qbittorrent base-devel git flatpak cachyos-hello cachyos-rate-mirrors cachyos-kernel-manager shelly fish firefox cachyos-firefox-settings openssh fuse2
 
