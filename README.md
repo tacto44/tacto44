@@ -15,7 +15,8 @@ sudo pacman -Scc
 
 sudo pacman -Sy
 
-sudo pacman -S linux-cachyos linux-cachyos-headers chwd
+sudo pacman -S linux-cachyos linux-cachyos-headers chwd limine-mkinitcpio-hook
+
 
 sudo chwd -a
 
@@ -25,7 +26,7 @@ sudo pacman -R linux
 
 sudo limine-mkinitcpio
 
-sudo pacman -S plasma-meta plasma-login-manager konsole dolphin kate vlc vlc-plugins-all steam libheif ark gwenview akregator unrar partitionmanager inter-font qbittorrent base-devel git flatpak cachyos-hello cachyos-rate-mirrors cachyos-kernel-manager shelly fish firefox cachyos-firefox-settings qemu-full virt-manager virt-viewer dnsmasq vde2 openbsd-netcat iptables-nft
+sudo pacman -S plasma-meta plasma-login-manager konsole dolphin kate vlc vlc-plugins-all steam libheif ark gwenview akregator unrar partitionmanager inter-font qbittorrent base-devel git flatpak cachyos-hello cachyos-rate-mirrors cachyos-kernel-manager shelly fish firefox cachyos-firefox-settings openssh fuse2
 
 
 chsh -s /usr/bin/fish
@@ -36,28 +37,11 @@ yay --devel --save
 
 sudo systemctl enable plasmalogin
 
-sudo systemctl enable --now libvirtd
-
-sudo usermod -aG libvirt $USER
 
 reboot into plasma
 
 balooctl6 disable
 balooctl6 purge
-
-cachyos hello, remember not to enable browser profiles in ram, change the others
-
-log into firefox, sites etc
-
-fish_config
-
-install aur packages, nord gui bin, kei, rounded corners git, karousel
-
-sudo usermod -aG nordvpn $USER
-
-sudo systemctl enable --now nordvpnd.service
-
-make all system changes, import shortcuts, change konsole, change font etc
 
 sudo sed -i '/^OPTIONS=/s/\bdebug\b/!debug/' /etc/makepkg.conf
 
@@ -65,3 +49,22 @@ sudo sed -i -E 's/^#?(DefaultTimeout(Start|Stop)Sec)=.*/\1=5s/' /etc/systemd/sys
 
 sudo sed -i -E 's/^#?(DefaultTimeout(Start|Stop)Sec)=.*/\1=5s/' /etc/systemd/user.conf
 
+
+
+cachyos hello, remember not to enable browser profiles in ram, change the others
+
+systemctl --user edit --full arch-update.timer
+
+
+log into firefox, sites etc
+
+fish_config
+
+install aur packages, nord gui bin, kei, rounded corners git, karousel plasma6-applets-kvitals-git
+
+
+sudo usermod -aG nordvpn $USER
+
+sudo systemctl enable --now nordvpnd.service
+
+make all system changes, import shortcuts, change konsole, change font etc
