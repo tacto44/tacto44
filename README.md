@@ -13,7 +13,6 @@ pacman -Qqn | sudo pacman -S --needed -
 
 sudo pacman -Scc
 
-sudo pacman -Sy
 
 sudo pacman -S linux-cachyos linux-cachyos-headers chwd systemd-boot-manager cachyos-hooks
 
