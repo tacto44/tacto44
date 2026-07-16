@@ -31,7 +31,8 @@ sudo pacman -R linux
 sudo sdboot-manage gen
 
 
-sudo pacman -S plasma-meta plasma-login-manager konsole dolphin kate vlc vlc-plugins-all steam libheif ark gwenview akregator unrar partitionmanager inter-font qbittorrent base-devel git flatpak cachyos-hello cachyos-rate-mirrors cachyos-kernel-manager shelly fish firefox cachyos-firefox-settings openssh fuse2 cachyos-packageinstaller power-profiles-daemon cachyos-settings
+sudo pacman -S plasma-meta plasma-login-manager konsole dolphin kate vlc vlc-plugins-all steam libheif ark gwenview akregator unrar partitionmanager inter-font qbittorrent base-devel git flatpak cachyos-hello cachyos-rate-mirrors cachyos-kernel-manager shelly fish firefox cachyos-firefox-settings openssh fuse2 cachyos-packageinstaller power-profiles-daemon cachyos-settings protonup-qt qemu-full virt-manager virt-viewer edk2-ovmf dnsmasq swtpm libvirt guestfs-tools libosinfo tuned
+
 
 
 
@@ -43,6 +44,9 @@ yay --devel --save
 
 sudo systemctl enable plasmalogin
 
+sudo systemctl enable --now libvirtd.service
+
+sudo usermod -aG libvirt $USER
 
 reboot into plasma
 
