@@ -1,0 +1,57 @@
+curl https://mirror.cachyos.org/cachyos-repo.tar.xz -o cachyos-repo.tar.xz
+
+tar xvf cachyos-repo.tar.xz
+
+cd cachyos-repo
+
+sudo ./cachyos-repo.sh
+
+manually remove the package folders at end of update if needed
+
+pacman -Qqn | sudo pacman -S --needed -
+
+sudo pacman -Scc
+
+sudo pacman -S linux-cachyos linux-cachyos-headers chwd systemd-boot-manager cachyos-hooks
+
+sudo chwd -a
+
+sudo sdboot-manage gen
+
+reboot
+
+sudo pacman -R linux
+
+sudo sdboot-manage gen
+
+sudo pacman -S  gnome-shell gdm gnome-control-center vlc vlc-plugins-all steam libheif unrar inter-font base-devel git flatpak cachyos-hello cachyos-rate-mirrors cachyos-kernel-manager shelly fish firefox cachyos-firefox-settings openssh fuse2 cachyos-packageinstaller power-profiles-daemon cachyos-settings 
+
+chsh -s /usr/bin/fish
+
+install yay
+
+yay --devel --save
+
+sudo systemctl enable gdm.service
+
+reboot into gnome
+
+sudo sed -i -E 's/^#?(DefaultTimeout(Start|Stop)Sec)=.*/\1=5s/' /etc/systemd/system.conf
+
+sudo sed -i -E 's/^#?(DefaultTimeout(Start|Stop)Sec)=.*/\1=5s/' /etc/systemd/user.conf
+
+cachyos hello, remember not to enable browser profiles in ram, change the others
+
+systemctl --user edit --full arch-update.timer
+
+log into firefox, sites etc
+
+fish_config
+
+install aur packages, nord gui bin, kei
+
+sudo usermod -aG nordvpn $USER
+
+sudo systemctl enable --now nordvpnd.service
+
+make all system changes,  change font etc
