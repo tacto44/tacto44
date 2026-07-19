@@ -28,14 +28,12 @@ sudo pacman -R linux
 sudo sdboot-manage gen
 
 
-sudo pacman -S plasma-meta plasma-login-manager konsole dolphin kate vlc vlc-plugins-all steam libheif ark gwenview akregator unrar partitionmanager inter-font qbittorrent base-devel git flatpak cachyos-hello cachyos-rate-mirrors cachyos-kernel-manager shelly fish firefox cachyos-firefox-settings openssh fuse2 cachyos-packageinstaller power-profiles-daemon cachyos-settings protonup-qt alacritty cava cups-pk-helper dms-shell-niri kimageformats matugen niri polkit tuned-ppd xdg-desktop-portal-gnome
+sudo pacman -S plasma-meta plasma-login-manager konsole dolphin kate vlc vlc-plugins-all steam libheif ark gwenview akregator unrar partitionmanager inter-font qbittorrent base-devel git flatpak cachyos-hello cachyos-rate-mirrors cachyos-kernel-manager shelly fish firefox cachyos-firefox-settings openssh fuse2 cachyos-packageinstaller power-profiles-daemon cachyos-settings yay
 
 
 
 
 chsh -s /usr/bin/fish
-
-install yay
 
 yay --devel --save
 
@@ -50,7 +48,6 @@ reboot into plasma
 balooctl6 disable
 balooctl6 purge
 
-sudo sed -i '/^OPTIONS=/s/\bdebug\b/!debug/' /etc/makepkg.conf
 
 sudo sed -i -E 's/^#?(DefaultTimeout(Start|Stop)Sec)=.*/\1=5s/' /etc/systemd/system.conf
 
@@ -64,8 +61,6 @@ systemctl --user edit --full arch-update.timer
 
 
 log into firefox, sites etc
-
-fish_config
 
 install aur packages, nord gui bin, kei, rounded corners git, karousel plasma6-applets-kvitals-git
 
