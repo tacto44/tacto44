@@ -24,17 +24,18 @@ sudo pacman -R linux
 
 sudo sdboot-manage gen
 
-sudo pacman -S  gnome-shell gdm gnome-control-center vlc vlc-plugins-all steam libheif unrar inter-font base-devel git flatpak cachyos-hello cachyos-rate-mirrors cachyos-kernel-manager shelly fish firefox cachyos-firefox-settings openssh fuse2 cachyos-packageinstaller power-profiles-daemon cachyos-settings 
 
-chsh -s /usr/bin/fish
 
-install yay
 
-yay --devel --save
+sudo pacman -S gnome-shell gdm gnome-control-center gnome-tweaks gnome-browser-connector nautilus xdg-desktop-portal-gnome gnome-shell-extension-manager gnome-console gnome-backgrounds loupe gvfs file-roller gnome-disk-utility gnome-keyring libsecret unzip 7-zip tar unrar showtime gst-libav gst-plugins-ugly transmission-gtk steam libheif yay  base-devel git flatpak cachyos-hello cachyos-rate-mirrors cachyos-kernel-manager shelly fish firefox cachyos-firefox-settings openssh fuse2 cachyos-packageinstaller cachyos-settings gnome-boxes 
+
+
+sudo systemctl enable --now libvirtd.service
+sudo usermod -aG libvirt $USER
+
+
 
 sudo systemctl enable gdm.service
-
-reboot into gnome
 
 sudo sed -i -E 's/^#?(DefaultTimeout(Start|Stop)Sec)=.*/\1=5s/' /etc/systemd/system.conf
 
@@ -46,12 +47,10 @@ systemctl --user edit --full arch-update.timer
 
 log into firefox, sites etc
 
-fish_config
-
-install aur packages, nord gui bin, kei
+install aur packages, nord gui bin, kei, rounded corners git, karousel plasma6-applets-kvitals-git
 
 sudo usermod -aG nordvpn $USER
 
 sudo systemctl enable --now nordvpnd.service
 
-make all system changes,  change font etc
+make all system changes, import shortcuts, change konsole, change font etc
