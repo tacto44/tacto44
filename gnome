@@ -27,7 +27,7 @@ sudo sdboot-manage gen
 
 
 
-sudo pacman -S gnome-shell gdm gnome-control-center gnome-tweaks gnome-browser-connector nautilus xdg-desktop-portal-gnome gnome-shell-extension-manager gnome-console gnome-backgrounds loupe gvfs file-roller gnome-disk-utility gnome-keyring libsecret unzip 7-zip tar unrar showtime gst-libav gfeeds gst-plugins-ugly gnome-text-editor transmission-gtk steam libheif yay  base-devel git flatpak cachyos-hello cachyos-rate-mirrors cachyos-kernel-manager shelly fish firefox cachyos-firefox-settings openssh fuse2 cachyos-packageinstaller cachyos-settings gnome-boxes 
+sudo pacman -S gnome-shell gdm gnome-control-center gnome-tweaks gnome-browser-connector nautilus xdg-desktop-portal-gnome gnome-software gnome-shell-extension-manager gnome-console gnome-backgrounds loupe gvfs file-roller gnome-disk-utility gnome-keyring libsecret unzip 7-zip tar unrar showtime gst-libav gfeeds gst-plugins-ugly gnome-text-editor transmission-gtk steam libheif yay  base-devel git flatpak cachyos-hello cachyos-rate-mirrors cachyos-kernel-manager shelly fish firefox cachyos-firefox-settings openssh fuse2 cachyos-packageinstaller cachyos-settings gnome-boxes 
 
 
 sudo systemctl enable --now libvirtd.service
