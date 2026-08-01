@@ -59,6 +59,8 @@ cachyos hello, remember not to enable browser profiles in ram, change the others
 
 systemctl --user edit --full arch-update.timer
 
+sudo ln -sf /dev/null /etc/xdg/autostart/org.kde.discover.notifier.desktop
+
 
 log into firefox, sites etc
 
