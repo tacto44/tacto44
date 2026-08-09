@@ -31,7 +31,31 @@ sudo sdboot-manage gen
 sudo pacman -S plasma-meta plasma-login-manager konsole dolphin kate vlc vlc-plugins-all steam libheif ark gwenview akregator unrar partitionmanager inter-font qbittorrent base-devel git flatpak cachyos-hello cachyos-rate-mirrors cachyos-kernel-manager shelly fish firefox cachyos-firefox-settings openssh fuse2 cachyos-packageinstaller power-profiles-daemon cachyos-settings yay
 
 
+sudo sed -i '/^OPTIONS=/s/\bdebug\b/!debug/' /etc/makepkg.conf
 
+sudo nano /etc/systemd/system.conf
+
+Find these two lines (they are usually commented out with a `#`):
+   ```ini
+   #DefaultTimeoutStartSec=90s
+   #DefaultTimeoutStopSec=90s
+
+   Change them to 5s
+
+   Tghen do the same thing for
+
+   sudo nano /etc/systemd/user.conf
+sudo systemctl daemon-reload
+systemctl --user daemon-reload
+
+
+   sudo nano /etc/systemd/journald.conf
+
+   Find and uncomment the `SystemMaxUse` line, then set its limit:
+   ```ini
+SystemMaxUse=200M
+
+Change to 200mb
 
 chsh -s /usr/bin/fish
 
