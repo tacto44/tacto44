@@ -1,4 +1,4 @@
-sudo dnf install ptyxis nautilus gnome-shell gdm gnome-control-center gnome-software snapd qbittorrent firefox loupe gnome-shell-extensions gnome-extensions-app gnome-text-editor file-roller gnome-system-monitor tuned-ppd Celluloid
+sudo dnf install ptyxis nautilus gnome-shell gdm gnome-control-center gnome-software snapd qbittorrent firefox loupe gnome-shell-extensions gnome-extensions-app gnome-text-editor file-roller gnome-system-monitor tuned-ppd Celluloid desktop-backgrounds-gnome
 
 sudo systemctl enable gdm.service
 
