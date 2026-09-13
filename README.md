@@ -1,44 +1,15 @@
-sudo pacman -S mesa vulkan-radeon nvidia-open-dkms nvidia-utils linux-zen-headers libheif firefox qbittorrent unrar plasma-meta plasma-login-manager vlc vlc-plugins-all steam inter-font konsole dolphin kate flatpak go cmake git base-devel fuse2 openssh
+sudo dnf install ptyxis nautilus gnome-shell gdm gnome-control-center gnome-software snapd qbittorrent firefox loupe gnome-shell-extensions gnome-extensions-app gnome-text-editor file-roller gnome-system-monitor tuned-ppd Celluloid
 
+sudo systemctl enable gdm.service
 
-sudo systemctl enable plasmalogin
+sudo systemctl set-default graphical.target
 
-reboot
+sudo systemctl enable --now snapd.socket
 
-make changes to settings, konsole etc
+sudo reboot
 
-git clone https://aur.archlinux.org/yay.git
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
-sudo sed -i '/^OPTIONS=/s/\bdebug\b/!debug/' /etc/makepkg.conf
+sudo dnf install steam akmod-nvidia
 
-sudo sed -i -E 's/^#?(DefaultTimeout(Start|Stop)Sec)=.*/\1=5s/' /etc/systemd/system.conf
-
-sudo sed -i -E 's/^#?(DefaultTimeout(Start|Stop)Sec)=.*/\1=5s/' /etc/systemd/user.conf
-
-balooctl6 disable
-balooctl6 purge
-
-yay --devel --save
-
-yay -S arch-update kwin-effect-rounded-corners-git kwin-scripts-karousel-git nordvpn-gui-bin
-
-
-arch-update --tray --enable
-
-sudo usermod -aG nordvpn $USER
-
-sudo systemctl enable --now nordvpnd
-
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-echo >> /home/mc/.bashrc
-
-echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"' >> /home/mc/.bashrc
-
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
-
-brew install rhoopr/kei/kei
-
-kei config setup
-
-import shortcuts rules etc
+sudo snap install nordvpn curseforge
