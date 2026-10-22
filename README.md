@@ -1,11 +1,17 @@
-sudo pacman -S plasma-desktop plasma-login-manager plasma-nm plasma-pa yay qbittorrent vlc dolphin konsole steam kate kde-gtk-config downgrade inter-font ark unrar flatpak partitionmanager brave-origin-bin chwd
+sudo pacman -S plasma-desktop plasma-login-manager plasma-nm plasma-pa yay qbittorrent vlc dolphin konsole steam kate kde-gtk-config downgrade inter-font ark unrar flatpak partitionmanager brave-origin-bin tuned tuned-ppd
 
-sudo chwd -a
+sudo systemctl enable --now tuned-ppd
+
+sudo tuned-adm profile latency-performance
 
 
 sudo systemctl enable plasmalogin.service
 
 sudo reboot
+
+sudo sed -i 's/^#\?DefaultTimeoutStopSec=.*/DefaultTimeoutStopSec=5s/' /etc/systemd/system.conf
+
+sudo sed -i 's/^#\?DefaultTimeoutStopSec=.*/DefaultTimeoutStopSec=5s/' /etc/systemd/user.conf
 
 sudo nano /etc/default/limine
 
@@ -13,6 +19,11 @@ sudo nano /etc/default/limine
 add the acpi into the cmdline
 
 acpi_backlight=native amdgpu.backlight=0 
+
+sudo limine-update
+
+sudo sed -i 's/^#\?SystemMaxUse=.*/SystemMaxUse=200M/' /etc/systemd/journald.conf
+
 
 sudo sed -i -E 's/^#?(DefaultTimeout(Start|Stop)Sec)=.*/\1=5s/' /etc/systemd/system.conf
 
