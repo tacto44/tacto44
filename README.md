@@ -11,6 +11,7 @@ add the acpi into the cmdline
 
  cmdline: quiet nowatchdog splash acpi_backlight=native amdgpu.backlight=0 rw rootflags
 
+sudo sed -i -E 's/^#?(DefaultTimeout(Start|Stop)Sec)=.*/\1=5s/' /etc/systemd/system.conf
  yay -S snapd
 sudo systemctl enable --now snapd.socket
 sudo snap install curseforge nordvpn
