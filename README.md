@@ -1,15 +1,27 @@
-sudo dnf install ptyxis nautilus gnome-shell gdm gnome-control-center gnome-software snapd qbittorrent firefox loupe gnome-shell-extensions gnome-extensions-app gnome-text-editor file-roller gnome-system-monitor tuned-ppd Celluloid desktop-backgrounds-gnome
+sudo pacman -S plasma-desktop plasma-login-manager plasma-nm plasma-pa yay qbittorrent vlc dolphin konsole steam kate kde-gtk-config downgrade inter-font ark unrar flatpak partitionmanager 
 
-sudo systemctl enable gdm.service
 
-sudo systemctl set-default graphical.target
 
-sudo systemctl enable --now snapd.socket
+sudo systemctl enable plasmalogin.service
 
 sudo reboot
 
-sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+ sudo nano /boot/limine.conf
+add the acpi into the cmdline
 
-sudo dnf install steam akmod-nvidia
+ cmdline: quiet nowatchdog splash acpi_backlight=native amdgpu.backlight=0 rw rootflags
 
-sudo snap install nordvpn curseforge
+ yay -S snapd
+sudo systemctl enable --now snapd.socket
+sudo snap install curseforge nordvpn
+yay --devel --save
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo >> /home/mc/.bashrc
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"' >> /home/mc/.bashrc
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
+brew install rhoopr/kei/kei
+kei setup config
+
+sudo groupadd nordvpn
+sudo usermod -aG nordvpn $USER
