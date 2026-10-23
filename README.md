@@ -9,6 +9,12 @@ sudo systemctl enable plasmalogin.service
 
 sudo reboot
 
+change settings like login and lock
+
+do window rules and shortcut imports
+
+change font to inter
+
 sudo sed -i 's/^#\?DefaultTimeoutStopSec=.*/DefaultTimeoutStopSec=5s/' /etc/systemd/system.conf
 
 sudo sed -i 's/^#\?DefaultTimeoutStopSec=.*/DefaultTimeoutStopSec=5s/' /etc/systemd/user.conf
