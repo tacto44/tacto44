@@ -17,6 +17,8 @@ sudo systemctl enable plasmalogin.service
 
 sudo reboot
 
+do cachy hello stuff
+
 change settings like login and lock, change theme to union
 
 do window rules and shortcut imports and add virtual desktops
@@ -49,7 +51,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
 
 brew install rhoopr/kei/kei
 
-kei setup config
+kei config setup
 
 sudo groupadd nordvpn
 
