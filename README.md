@@ -1,24 +1,8 @@
-sudo pacman -S plasma-desktop plasma-login-manager plasma-nm plasma-pa yay qbittorrent vlc dolphin konsole steam kate kde-gtk-config downgrade inter-font ark unrar flatpak partitionmanager brave-origin-bin tuned tuned-ppd libheif
+sudo pacman -S plasma-desktop plasma-login-manager plasma-nm plasma-pa yay qbittorrent vlc dolphin konsole steam kate kde-gtk-config downgrade inter-font ark unrar flatpak partitionmanager brave-origin-bin tuned tuned-ppd libheif openssh
 
 sudo systemctl enable --now tuned-ppd
 
 sudo tuned-adm profile latency-performance
-
-
-sudo systemctl enable plasmalogin.service
-
-sudo reboot
-
-change settings like login and lock
-
-do window rules and shortcut imports
-
-change font to inter
-
-sudo sed -i 's/^#\?DefaultTimeoutStopSec=.*/DefaultTimeoutStopSec=5s/' /etc/systemd/system.conf
-
-sudo sed -i 's/^#\?DefaultTimeoutStopSec=.*/DefaultTimeoutStopSec=5s/' /etc/systemd/user.conf
-
 sudo nano /etc/default/limine
 
 
@@ -28,12 +12,26 @@ acpi_backlight=native amdgpu.backlight=0
 
 sudo limine-update
 
+
+sudo systemctl enable plasmalogin.service
+
+sudo reboot
+
+change settings like login and lock, change theme to union
+
+do window rules and shortcut imports and add virtual desktops
+
+change font to inter
+
+sudo sed -i 's/^#\?DefaultTimeoutStopSec=.*/DefaultTimeoutStopSec=5s/' /etc/systemd/system.conf
+
+sudo sed -i 's/^#\?DefaultTimeoutStopSec=.*/DefaultTimeoutStopSec=5s/' /etc/systemd/user.conf
+
+
 sudo sed -i 's/^#\?SystemMaxUse=.*/SystemMaxUse=200M/' /etc/systemd/journald.conf
 
 
-sudo sed -i -E 's/^#?(DefaultTimeout(Start|Stop)Sec)=.*/\1=5s/' /etc/systemd/system.conf
-
- yay -S snapd
+yay -S snapd
 
 sudo systemctl enable --now snapd.socket
 
