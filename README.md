@@ -1,4 +1,4 @@
-sudo pacman -S plasma-desktop plasma-login-manager plasma-nm plasma-pa yay qbittorrent vlc dolphin konsole steam kate kde-gtk-config downgrade inter-font ark unrar flatpak partitionmanager brave-origin-bin tuned tuned-ppd libheif openssh
+sudo pacman -S plasma-desktop plasma-login-manager plasma-nm plasma-pa yay qbittorrent vlc dolphin konsole steam kate kde-gtk-config downgrade inter-font ark unrar flatpak partitionmanager brave-origin-bin tuned tuned-ppd libheif openssh shelly
 
 sudo systemctl enable --now tuned-ppd
 
@@ -32,6 +32,9 @@ sudo sed -i 's/^#\?DefaultTimeoutStopSec=.*/DefaultTimeoutStopSec=5s/' /etc/syst
 
 sudo sed -i 's/^#\?SystemMaxUse=.*/SystemMaxUse=200M/' /etc/systemd/journald.conf
 
+balooctl6 disable
+balooctl6 purge
+systemctl --user mask kde-baloo.service
 
 yay -S snapd
 
