@@ -1,4 +1,4 @@
-sudo pacman -S plasma-desktop plasma-login-manager plasma-nm plasma-pa yay qbittorrent vlc dolphin konsole steam kate kde-gtk-config downgrade inter-font ark unrar flatpak partitionmanager brave-origin-bin tuned tuned-ppd libheif openssh shelly
+sudo pacman -S plasma-desktop plasma-login-manager plasma-nm plasma-pa yay qbittorrent vlc dolphin konsole steam kate kde-gtk-config downgrade inter-font ark unrar flatpak partitionmanager brave-origin-bin tuned tuned-ppd libheif openssh shelly mullvad-vpn
 
 
 sudo nano /etc/default/limine
@@ -10,6 +10,7 @@ acpi_backlight=native amdgpu.backlight=0
 
 sudo limine-update
 
+sudo systemctl enable --now mullvad-daemon.service
 
 sudo systemctl enable plasmalogin.service
 
