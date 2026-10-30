@@ -44,6 +44,16 @@ sudo tuned-adm profile latency-performance
 yay --devel --save
 
 
-yay -S curseforge kei
+yay -S curseforge
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+echo >> /home/mc/.bashrc
+
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"' >> /home/mc/.bashrc
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
+
+brew install rhoopr/kei/kei
 
 kei config setup
