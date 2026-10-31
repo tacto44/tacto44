@@ -41,6 +41,6 @@ systemctl --user mask kde-baloo.service
 yay --devel --save
 
 
-yay -S curseforge
+yay -S curseforge kei
 
 
