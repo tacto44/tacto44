@@ -1,4 +1,4 @@
-sudo pacman -S plasma-desktop plasma-login-manager plasma-nm plasma-pa yay qbittorrent vlc dolphin konsole steam kate kde-gtk-config downgrade inter-font ark unrar flatpak partitionmanager brave-origin-bin tuned-cachy tuned-cachy-ppd libheif openssh shelly mullvad-vpn
+sudo pacman -S plasma-desktop plasma-login-manager plasma-nm plasma-pa yay qbittorrent vlc dolphin konsole steam kate kde-gtk-config downgrade inter-font ark unrar flatpak partitionmanager brave-origin-bin libheif openssh shelly mullvad-vpn
 
 
 sudo nano /etc/default/limine
@@ -43,14 +43,4 @@ yay --devel --save
 
 yay -S curseforge
 
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-echo >> /home/mc/.bashrc
-
-echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"' >> /home/mc/.bashrc
-
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
-
-brew install rhoopr/kei/kei
-
-kei config setup
