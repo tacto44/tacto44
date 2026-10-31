@@ -1,4 +1,4 @@
-sudo pacman -S plasma-desktop plasma-login-manager plasma-nm plasma-pa yay qbittorrent vlc dolphin konsole steam kate kde-gtk-config downgrade inter-font ark unrar flatpak partitionmanager brave-origin-bin tuned tuned-ppd libheif openssh shelly mullvad-vpn
+sudo pacman -S plasma-desktop plasma-login-manager plasma-nm plasma-pa yay qbittorrent vlc dolphin konsole steam kate kde-gtk-config downgrade inter-font ark unrar flatpak partitionmanager brave-origin-bin tuned-cachy tuned-cachy-ppd libheif openssh shelly mullvad-vpn
 
 
 sudo nano /etc/default/limine
@@ -37,9 +37,6 @@ balooctl6 purge
 
 systemctl --user mask kde-baloo.service
 
-sudo systemctl enable --now tuned-ppd
-
-sudo tuned-adm profile latency-performance
 
 yay --devel --save
 
