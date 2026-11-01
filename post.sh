@@ -39,8 +39,8 @@ PACKAGES=(
     # Media & Browsing
     vlc
     qbittorrent
-    brave-origin-bin
     
+   
     # System, Networking & Gaming
     yay
     flatpak
