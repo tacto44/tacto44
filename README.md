@@ -40,7 +40,9 @@ systemctl --user mask kde-baloo.service
 
 yay --devel --save
 
+yay -S kei --mflags="--nocheck"
 
-yay -S curseforge kei
+
+yay -S curseforge
 
 
