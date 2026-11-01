@@ -1,4 +1,4 @@
-sudo pacman -S plasma-desktop plasma-login-manager plasma-nm plasma-pa yay qbittorrent vlc dolphin konsole steam kate kde-gtk-config inter-font ark unzip unrar flatpak partitionmanager brave-origin-bin libheif openssh shelly mullvad-vpn tuned-cachy tuned-cachy-ppd
+sudo pacman -S plasma-desktop plasma-login-manager plasma-nm plasma-pa yay qbittorrent vlc dolphin konsole steam kate kde-gtk-config inter-font ark unzip unrar flatpak partitionmanager libheif openssh shelly mullvad-vpn tuned-cachy tuned-cachy-ppd
 
 
 sudo nano /etc/default/limine
